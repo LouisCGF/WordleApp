@@ -616,7 +616,7 @@
                 android:alpha="0.2"
                 android:background="@drawable/box_outline" />
 
-
+<!-- ________________________________________________________________ -->
 
             <View
                 android:layout_width="60dp"
