@@ -10,12 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-
-    private AppCompatButton qButton, wButton, eButton, rButton, tButton, yButton, uButton, iButton, oButton,
-            pButton, aButton, sButton, dButton, fButton, gButton, hButton, jButton, kButton, lButton,
-            zButton, xButton, cButton, vButton, bButton, nButton, mButton, enterButton, deleteButton;
 
     private View viewGrid0_0, viewGrid0_1, viewGrid0_2, viewGrid0_3, viewGrid0_4, viewGrid1_0, viewGrid1_1,
             viewGrid1_2, viewGrid1_3, viewGrid1_4, viewGrid2_0, viewGrid2_1, viewGrid2_2, viewGrid2_3,
@@ -31,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     boolean isRowFull = false;
 
-    View[][] views;
-    TextView[][] textViews;
+    String[] keys = {"q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h",
+    "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"};
 
     int currentColumn = 0;
     int currentRow = 0;
@@ -42,22 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-// ------------------------- KEYBOARD BUTTONS ------------------------------------------------------
+// ------------------------- ENTER AND DELETE BUTTONS ------------------------------------------------------
 
-        qButton = findViewById(R.id.qButton); wButton = findViewById(R.id.wButton); eButton =
-                findViewById(R.id.eButton); rButton = findViewById(R.id.rButton); tButton =
-                findViewById(R.id.tButton); yButton = findViewById(R.id.yButton); uButton =
-                findViewById(R.id.uButton); iButton = findViewById(R.id.iButton); oButton =
-                findViewById(R.id.oButton); pButton = findViewById(R.id.pButton); aButton =
-                findViewById(R.id.aButton); sButton = findViewById(R.id.sButton); dButton =
-                findViewById(R.id.dButton); fButton = findViewById(R.id.fButton); gButton =
-                findViewById(R.id.gButton); hButton = findViewById(R.id.hButton); jButton =
-                findViewById(R.id.jButton); kButton = findViewById(R.id.kButton); lButton =
-                findViewById(R.id.lButton); zButton = findViewById(R.id.zButton); xButton =
-                findViewById(R.id.xButton); cButton = findViewById(R.id.cButton); vButton =
-                findViewById(R.id.vButton); bButton = findViewById(R.id.bButton); nButton =
-                findViewById(R.id.nButton); mButton = findViewById(R.id.mButton); enterButton =
-                findViewById(R.id.enterButton); deleteButton = findViewById(R.id.deleteButton);
+        AppCompatButton enterButton = findViewById(R.id.enterButton);
+        AppCompatButton deleteButton = findViewById(R.id.deleteButton);
 
 // ------------------------- GRID VIEWS ------------------------------------------------------
 
@@ -110,40 +95,34 @@ public class MainActivity extends AppCompatActivity {
             if (currentColumn != 5){
                 Toast.makeText(MainActivity.this, "Please enter a five letter word", Toast.LENGTH_SHORT).show();
             } else{
-                // will do something like compareInputWord()
+                String[] guessedWord = getGuessedWord(currentRow);
+                // will do something like compareInputWord(guessedWord)
+                for (String word : guessedWord){
+                    System.out.println(word);
+                }
                 currentRow++;
                 currentColumn = 0;
                 isRowFull = false;
             }
         });
 
-        qButton.setOnClickListener(view -> generalKeyClick("Q"));
-        wButton.setOnClickListener(view -> generalKeyClick("W"));
-        eButton.setOnClickListener(view -> generalKeyClick("E"));
-        rButton.setOnClickListener(view -> generalKeyClick("R"));
-        tButton.setOnClickListener(view -> generalKeyClick("T"));
-        yButton.setOnClickListener(view -> generalKeyClick("Y"));
-        uButton.setOnClickListener(view -> generalKeyClick("U"));
-        iButton.setOnClickListener(view -> generalKeyClick("I"));
-        oButton.setOnClickListener(view -> generalKeyClick("O"));
-        pButton.setOnClickListener(view -> generalKeyClick("P"));
-        aButton.setOnClickListener(view -> generalKeyClick("A"));
-        sButton.setOnClickListener(view -> generalKeyClick("S"));
-        dButton.setOnClickListener(view -> generalKeyClick("D"));
-        fButton.setOnClickListener(view -> generalKeyClick("F"));
-        gButton.setOnClickListener(view -> generalKeyClick("G"));
-        hButton.setOnClickListener(view -> generalKeyClick("H"));
-        jButton.setOnClickListener(view -> generalKeyClick("J"));
-        kButton.setOnClickListener(view -> generalKeyClick("K"));
-        lButton.setOnClickListener(view -> generalKeyClick("L"));
-        zButton.setOnClickListener(view -> generalKeyClick("Z"));
-        xButton.setOnClickListener(view -> generalKeyClick("X"));
-        cButton.setOnClickListener(view -> generalKeyClick("C"));
-        vButton.setOnClickListener(view -> generalKeyClick("V"));
-        bButton.setOnClickListener(view -> generalKeyClick("B"));
-        nButton.setOnClickListener(view -> generalKeyClick("N"));
-        mButton.setOnClickListener(view -> generalKeyClick("M"));
+        for (String key : keys){ // <- Setting up listeners for each keyboard button (exlc enter and delete buttons)
+            String buttonID = key + "Button";
+            AppCompatButton currentButton = findViewById(getResources().getIdentifier(buttonID, "id", getPackageName()));
+            currentButton.setOnClickListener(view -> generalKeyClick(key.toUpperCase(Locale.ROOT)));
+        }
 
+    }
+
+    private String[] getGuessedWord(int currentRow){
+        String[] guessedWord = new String[5];
+        for (int i = 0; i < 5; i++){
+            String currentTextViewID = "textGrid" + currentRow + "_" + i;
+            TextView currentTextView = findViewById(getResources().getIdentifier(currentTextViewID, "id", getPackageName()));
+            guessedWord[i] = (String) currentTextView.getText();
+        }
+
+        return guessedWord;
     }
 
     private void generalKeyClick(String letter){
