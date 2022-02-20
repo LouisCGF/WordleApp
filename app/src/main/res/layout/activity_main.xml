@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wordle"
+        android:text="@string/wordle"
         android:textSize="40sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
@@ -600,7 +599,7 @@
                 android:layout_height="50dp"
                 android:layout_row="4"
                 android:layout_column="4"
-                android:text="A"
+                android:text=""
                 android:textSize="40sp"
                 android:textColor="@color/white"
                 android:gravity="center"
@@ -609,6 +608,7 @@
 <!-- ______________________________________________________________ -->
 
             <View
+                android:id="@+id/viewGrid5_0"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_row="5"
@@ -616,9 +616,22 @@
                 android:alpha="0.2"
                 android:background="@drawable/box_outline" />
 
-<!-- ________________________________________________________________ -->
+            <TextView
+                android:id="@+id/textGrid5_0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_row="5"
+                android:layout_column="0"
+                android:text=""
+                android:textSize="40sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginStart="8dp"/>
+
+<!-- __________________________________________________________________ -->
 
             <View
+                android:id="@+id/viewGrid5_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_row="5"
@@ -626,9 +639,22 @@
                 android:alpha="0.2"
                 android:background="@drawable/box_outline" />
 
+            <TextView
+                android:id="@+id/textGrid5_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_row="5"
+                android:layout_column="1"
+                android:text=""
+                android:textSize="40sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginStart="8dp"/>
 
+<!-- _________________________________________________________ -->
 
             <View
+                android:id="@+id/viewGrid5_2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_row="5"
@@ -636,9 +662,22 @@
                 android:alpha="0.2"
                 android:background="@drawable/box_outline" />
 
+            <TextView
+                android:id="@+id/textGrid5_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_row="5"
+                android:layout_column="2"
+                android:text=""
+                android:textSize="40sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginStart="8dp"/>
 
+<!-- __________________________________________________________ -->
 
             <View
+                android:id="@+id/viewGrid5_3"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_row="5"
@@ -646,9 +685,22 @@
                 android:alpha="0.2"
                 android:background="@drawable/box_outline" />
 
+            <TextView
+                android:id="@+id/textGrid5_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_row="5"
+                android:layout_column="3"
+                android:text=""
+                android:textSize="40sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginStart="8dp"/>
 
+<!-- _______________________________________________________________ -->
 
             <View
+                android:id="@+id/viewGrid5_4"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_row="5"
@@ -656,6 +708,17 @@
                 android:alpha="0.2"
                 android:background="@drawable/box_outline" />
 
+            <TextView
+                android:id="@+id/textGrid5_4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_row="5"
+                android:layout_column="4"
+                android:text=""
+                android:textSize="40sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginStart="8dp"/>
 
         </GridLayout>
 
@@ -667,207 +730,228 @@
         android:layout_marginTop="35dp">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/qButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="550dp"
-            android:text="q">
-
-        </androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/q" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/wButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="550dp"
-            android:text="w"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/w"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/eButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="105dp"
             android:layout_marginTop="550dp"
-            android:text="e"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/e"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="155dp"
             android:layout_marginTop="550dp"
-            android:text="r"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/r"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="205dp"
             android:layout_marginTop="550dp"
-            android:text="t"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/t"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/yButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="255dp"
             android:layout_marginTop="550dp"
-            android:text="y"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/y"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="305dp"
             android:layout_marginTop="550dp"
-            android:text="u"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/u"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/iButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="355dp"
             android:layout_marginTop="550dp"
-            android:text="i"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/i"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/oButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="600dp"
-            android:text="o"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/o"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="600dp"
-            android:text="p"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/p"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/aButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="105dp"
             android:layout_marginTop="600dp"
-            android:text="a"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/a"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="155dp"
             android:layout_marginTop="600dp"
-            android:text="s"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/s"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="205dp"
             android:layout_marginTop="600dp"
-            android:text="d"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/d"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="255dp"
             android:layout_marginTop="600dp"
-            android:text="f"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/f"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/gButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="305dp"
             android:layout_marginTop="600dp"
-            android:text="g"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/g"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="355dp"
             android:layout_marginTop="600dp"
-            android:text="h"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/h"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/jButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="105dp"
             android:layout_marginTop="700dp"
-            android:text="j"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/j"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/kButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="650dp"
-            android:text="k"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/k"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/lButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="105dp"
             android:layout_marginTop="650dp"
-            android:text="l"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/l"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/zButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="155dp"
             android:layout_marginTop="650dp"
-            android:text="z"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/z"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/xButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="205dp"
             android:layout_marginTop="650dp"
-            android:text="x"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/x"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="255dp"
             android:layout_marginTop="650dp"
-            android:text="c"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/c"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/vButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="305dp"
             android:layout_marginTop="650dp"
-            android:text="v"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/v"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="155dp"
             android:layout_marginTop="700dp"
-            android:text="b"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/b"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="205dp"
             android:layout_marginTop="700dp"
-            android:text="n"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/n"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mButton"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="255dp"
             android:layout_marginTop="700dp"
-            android:text="m"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/m"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/enterButton"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="700dp"
-            android:text="Enter"></androidx.appcompat.widget.AppCompatButton>
+            android:text="@string/enter"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/deleteButton"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="305dp"
             android:layout_marginTop="700dp"
-            android:text="Delete"></androidx.appcompat.widget.AppCompatButton>
-
+            android:text="@string/delete"/>
 
     </RelativeLayout>
-
-
-
-
 </RelativeLayout>
