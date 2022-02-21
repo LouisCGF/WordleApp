@@ -8,11 +8,15 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
@@ -126,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void displayColoursOnViews(Integer[] colours, int currentRow){
+    private void displayColoursOnViews(Integer[] colours, int currentRow) {
         String currentViewID, currentTextViewID, buttonID;
         View currentView;
         TextView currentTextView;
@@ -142,14 +146,34 @@ public class MainActivity extends AppCompatActivity {
             currentButton = findViewById(getResources().getIdentifier(buttonID, "id", getPackageName()));
 
             if (colours[i] == null){
+                Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.flip_out);
+                anim.setStartOffset(anim.getDuration() * i);
+                currentView.startAnimation(anim);
+                currentTextView.startAnimation(anim);
+
                 currentView.setBackgroundColor(getResources().getColor(R.color.key_black));
                 currentButton.setBackgroundResource(R.drawable.key_black_colour);
+
+
             } else if (colours[i] == 1){
+                Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.flip_out);
+                anim.setStartOffset(anim.getDuration() * i);
+                currentView.startAnimation(anim);
+                currentTextView.startAnimation(anim);
+
                 currentView.setBackgroundColor(getResources().getColor(R.color.key_green));
                 currentButton.setBackgroundResource(R.drawable.key_green_colour);
+
+
             } else {
+                Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.flip_out);
+                anim.setStartOffset(anim.getDuration() * i);
+                currentView.startAnimation(anim);
+                currentTextView.startAnimation(anim);
+
                 currentView.setBackgroundColor(getResources().getColor(R.color.key_yellow));
                 currentButton.setBackgroundResource(R.drawable.key_yellow_colour);
+
             }
         }
     }
