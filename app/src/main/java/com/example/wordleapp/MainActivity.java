@@ -2,14 +2,19 @@ package com.example.wordleapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.ContextCompat;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -96,22 +101,51 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Please enter a five letter word", Toast.LENGTH_SHORT).show();
             } else{
                 String[] guessedWord = getGuessedWord(currentRow);
-                // will do something like compareInputWord(guessedWord)
-                for (String word : guessedWord){
-                    System.out.println(word);
-                }
+                CompareWords compare = new CompareWords();
+
+                Integer[] colours = compare.compareWords(guessedWord);
+                displayColoursOnViews(colours, currentRow);
+
                 currentRow++;
                 currentColumn = 0;
                 isRowFull = false;
             }
         });
 
-        for (String key : keys){ // <- Setting up listeners for each keyboard button (exlc enter and delete buttons)
+        for (String key : keys){ // <- Setting up listeners for each keyboard button (exlcu enter and delete buttons)
             String buttonID = key + "Button";
             AppCompatButton currentButton = findViewById(getResources().getIdentifier(buttonID, "id", getPackageName()));
             currentButton.setOnClickListener(view -> generalKeyClick(key.toUpperCase(Locale.ROOT)));
         }
 
+    }
+
+    private void displayColoursOnViews(Integer[] colours, int currentRow){
+        String currentViewID, currentTextViewID, buttonID;
+        View currentView;
+        TextView currentTextView;
+        AppCompatButton currentButton;
+
+        for (int i = 0; i < colours.length; i++){
+            currentViewID = "viewGrid" + currentRow + "_" + i;
+            currentTextViewID = "textGrid" + currentRow + "_" + i;
+            currentView = findViewById(getResources().getIdentifier(currentViewID, "id", getPackageName()));
+            currentTextView = findViewById(getResources().getIdentifier(currentTextViewID, "id", getPackageName()));
+
+            buttonID = currentTextView.getText().toString().toLowerCase(Locale.ROOT) + "Button";
+            currentButton = findViewById(getResources().getIdentifier(buttonID, "id", getPackageName()));
+
+            if (colours[i] == null){
+                currentView.setBackgroundColor(getResources().getColor(R.color.key_black));
+                currentButton.setBackgroundResource(R.drawable.key_black_colour);
+            } else if (colours[i] == 1){
+                currentView.setBackgroundColor(getResources().getColor(R.color.key_green));
+                currentButton.setBackgroundResource(R.drawable.key_green_colour);
+            } else {
+                currentView.setBackgroundColor(getResources().getColor(R.color.key_yellow));
+                currentButton.setBackgroundResource(R.drawable.key_yellow_colour);
+            }
+        }
     }
 
     private String[] getGuessedWord(int currentRow){
@@ -159,5 +193,7 @@ public class MainActivity extends AppCompatActivity {
         currentTextView.setText("");
 
     }
+
+
 
 }
