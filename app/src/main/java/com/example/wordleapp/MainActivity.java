@@ -106,6 +106,12 @@ public class MainActivity extends AppCompatActivity {
                 Integer[] colours = compare.compareWords(guessedWord);
                 displayColoursOnViews(colours, currentRow);
 
+                if (Arrays.equals(colours, new Integer[] {1, 1, 1, 1, 1})) { // <- User has guessed the word
+                    Toast.makeText(MainActivity.this, "You guessed the word!", Toast.LENGTH_SHORT).show();
+                    return;
+
+                }
+
                 currentRow++;
                 currentColumn = 0;
                 isRowFull = false;
